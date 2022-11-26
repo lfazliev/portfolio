@@ -1,22 +1,13 @@
 <template>
-  <h1>Home baby</h1>
-
-
-
-
-
-
-
-
-
+  <h1>Works</h1>
 </template>
 
 <script>
 export default {
-  name: "HomeComp"
+  name: "WorkView"
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 
 </style>
