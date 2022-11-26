@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "ContactComp"
+  name: "WorkComp"
 }
 </script>
 

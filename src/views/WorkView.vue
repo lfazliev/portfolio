@@ -1,10 +1,15 @@
 <template>
-  <h1>Works</h1>
+  <WorkComp/>
 </template>
 
 <script>
+
+import WorkComp from "@/components/WorkComp";
 export default {
-  name: "WorkView"
+  name: "WorkView",
+  components: {
+    WorkComp
+  }
 }
 </script>
 
