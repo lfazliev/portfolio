@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <HomeComp/>
+    <GreetingComp/>
   </div>
 </template>
 
 <script>
-import HomeComp from "@/components/HomeComp";
+import GreetingComp from "@/components/GreetingComp";
 
 export default {
   name: 'HomeView',
   components: {
-    HomeComp
+    GreetingComp
   }
 }
 </script>
