@@ -1,12 +1,11 @@
 <template>
   <div class="offer">
     <h1>What I can Offer you?</h1>
-    <p>{{learnMore}}}</p>
-
+    <p>{{learnMore}}</p>
     <div class="items">
       <div class="item">
         <!--Empty blocks for design purpose-->
-        <div class="square"/><div class="rectangle"/>
+        <div class="rectangleLeft"/>
         <img src="@/assets/portfolio/sketches/GIRL.png" alt="sketch">
         <h1>Consulting</h1>
         <button>Learn More</button>
@@ -17,13 +16,15 @@
         <button>Let's do it</button>
       </div>
       <div class="item">
-        <div class="square"/><div class="rectangle"/>
+        <div class="rectangleRight"/>
         <img src="@/assets/portfolio/sketches/PHONE.png" alt="sketch">
         <h1>Copywriting</h1>
         <button>I'm in</button>
       </div>
     </div>
-
+    <img src="@/assets/portfolio/sketches/scetch.png" alt="sketch" id="sketch1">
+    <img src="@/assets/portfolio/sketches/scetch.png" alt="sketch" id="sketch2">
+    <img src="@/assets/portfolio/sketches/scetch.png" alt="sketch" id="sketch3">
   </div>
 </template>
 
@@ -42,31 +43,91 @@ export default {
 
 <style lang="scss">
   .offer{
+    position: relative;
     h1{
-
+      text-align: center;
+      text-transform: uppercase;
+      color: $global;
+      font-family: $mainFont;
+      font-weight: 500;
     }
     p{
-
+      text-align: center;
+      color: black;
+      margin: auto;
+      width: 35%;
+      font-family: $mainFont;
     }
     .items{
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       .item{
-        .square{
-
+        width: 30%;
+        text-align: center;
+        .rectangleLeft{
+          height: 60px;
+          position: absolute;
+          width: 15%;
+          background-color: #ECC0B2FF;
+          left: 0;
+          bottom: 50%;
+          z-index: -1;
+          transform: translateY(-50%);
         }
-        .rectangle{
-
+        .rectangleRight{
+          height: 60px;
+          position: absolute;
+          width: 15%;
+          background-color: #ECC0B2FF;
+          right: 0;
+          bottom: 50%;
+          z-index: -1;
+          transform: translateY(-50%);
         }
         img{
-
+          width: 100%;
         }
         h1{
-
+          font-family: $mainFont;
+          text-transform: uppercase;
+          font-weight: 500;
         }
         button{
-
+          padding: 19px;
+          color: white;
+          background-color: #fde8e1;
+          border: none;
+          border-radius: 30px;
+          text-transform: uppercase;
+          font-size: 20px;
+          width: 275px;
+          &:hover{
+            background-color: black;
+            color: $global;
+            cursor: pointer;
+          }
         }
       }
+    }
+    #sketch1,#sketch2,#sketch3{
+      position: absolute;
+    }
+    #sketch1{
+      top: -85px;
+      left: -280px;
+      transform: rotate(12deg);
+    }
+    #sketch2{
+      top: -100px;
+      right: -191px;
+      transform: rotate(172deg);
+    }
+    #sketch3{
+      bottom: -167px;
+      left: -221px;
+      transform: rotate(167deg);
     }
   }
 </style>
