@@ -97,7 +97,7 @@ export default {
         button{
           padding: 19px;
           color: white;
-          background-color: #fde8e1;
+          background-color: $global;
           border: none;
           border-radius: 30px;
           text-transform: uppercase;
@@ -113,6 +113,7 @@ export default {
     }
     #sketch1,#sketch2,#sketch3{
       position: absolute;
+      z-index: -10;
     }
     #sketch1{
       top: -85px;
