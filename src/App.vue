@@ -15,23 +15,19 @@
     </div>
   </nav>
   <router-view/>
-  <FooterComp/>
 </template>
 
 <script>
-import FooterComp from "@/components/FooterComp";
 
 export default {
-  name: "App",
-  components:{
-    FooterComp
-  }
+  name: "App"
 }
 </script>
 
 <style lang="scss">
   body{
     margin: 0;
+    overflow-x: hidden;
   }
   nav{
     background-color: #fde8e1;

@@ -20,12 +20,27 @@
         <img src="@/assets/portfolio/paper.png" alt="paper image" id="paperImg">
       </div>
     </div>
+
+    <div class="end">
+      <h2>I occasionally take on freelance opportunities.</h2>
+      <p>
+        Have an exciting project where you need some help? <br>
+        Send me over a message, and <u @click="goToContact">let's chat.</u>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
-  name: "EducationComp"
+  name: "EducationComp",
+  methods:{
+    goToContact:()=>{
+      router.replace("/contact");
+    }
+  }
 }
 </script>
 
@@ -34,7 +49,7 @@ export default {
     height: 900px;
     background-color: $global;
     margin-top:20px;
-    h1{
+    h1:first-of-type{
       text-align: center;
       color: white;
       font-family: $mainFont;
@@ -94,6 +109,21 @@ export default {
           right: 8px;
           transform: rotate(150deg);
         }
+      }
+    }
+
+    .end{
+      text-align: center;
+      color: white;
+      font-family: $mainFont;
+      width: 435px;
+      margin: 100px auto;
+      h2{
+        font-size: 32px;
+      }
+      u:hover{
+        cursor: pointer;
+        color: black;
       }
     }
   }
