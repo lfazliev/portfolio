@@ -1,26 +1,37 @@
 <template>
   <div class="contact">
     <h2>Thanks for taking the time to reach out. <br> How can I help you today?</h2>
-    <div class=input-cont>
-      <div class='input-cont-sec'>
-        <div class="text-field">
-          <label class="text-field__label" for="username">Name</label>
-          <input class="text-field__input text-field__input_valid" type="text" name="firstname">
-          <div class="text-field__message"></div>
+    <form @submit="checkForm">
+      <p v-if="errors.length">
+        <b>Пожалуйста исправьте указанные ошибки:</b>
+      <ul>
+        <!-- y
+          li v-for="error in errors: key =" error">{{ error }}</li> -->
+      </ul>
+      </p>
+      <div class=input-cont>
+        <div class='input-cont-sec'>
+          <div class="text-field">
+            <label class="text-field__label" for="username">Name</label>
+            <input required class="text-field__input text-field__input_valid" type="text" name="firstname" v-model=name>
+            <div class="text-field__message"></div>
+          </div>
+          <div class="text-field">
+            <label class="text-field__label" for="username">E-mail</label>
+            <input required class="text-field__input text-field__input_valid" type="email" name="firstname"
+              v-model=email>
+            <div class="text-field__message"></div>
+          </div>
         </div>
-        <div class="text-field">
-          <label class="text-field__label" for="username">E-mail</label>
-          <input class="text-field__input text-field__input_valid" type="email" name="firstname">
+        <div class="textarea-field">
+          <label class="text-field__label" for="username">Massage</label>
+          <textarea required class="text-field__input text-field__input_valid" type="text" name="firstname"
+            v-model=text></textarea>
           <div class="text-field__message"></div>
         </div>
       </div>
-      <div class="textarea-field">
-        <label class="text-field__label" for="username">Massage</label>
-        <textarea class="text-field__input text-field__input_valid" type="text" name="firstname"></textarea>
-        <div class="text-field__message"></div>
-      </div>
-    </div>
-    <button class=subbtn>Submit</button>
+      <button type="submit" class=subbtn @click="checkinp">Submit</button>
+    </form>
   </div>
 </template>
 
@@ -29,7 +40,36 @@
 
 export default {
   name: "ContactView",
+  data() {
+    return {
+      text: '',
+      name: '',
+      email: '',
+      errors: [],
+    }
+  },
+  methods: {
+    checkForm: function (e) {
+      if (this.text && this.email && this.text) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push('Требуется указать имя.');
+      }
+      if (!this.age) {
+        this.errors.push('Требуется указать возраст.');
+      }
+      if (!this.email) {
+        this.errors.push('Требуется указать возраст.');
+      }
+      e.preventDefault();
+    }
+  }
 }
+
 </script>
 <style lang="scss">
 body {
@@ -55,7 +95,8 @@ body {
   align-items: center;
 }
 
-.contact {
+.contact,
+form {
   label {
     font-weight: 700px;
     font-size: 23px;
@@ -70,6 +111,11 @@ body {
     padding: 20px 90px;
     font-size: 25px;
     font-weight: 500;
+  }
+
+  .subbtn:hover {
+    cursor: pointer;
+    filter: brightness(30%);
   }
 
   .text-field,
@@ -137,6 +183,13 @@ body {
       width: 85% !important;
     }
 
+    textarea {
+
+      width: 90%;
+
+      border-radius: 100px;
+    }
+
     .input-cont-sec {
       flex-direction: column;
     }
@@ -148,5 +201,6 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 </style>

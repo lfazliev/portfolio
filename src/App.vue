@@ -1,4 +1,4 @@
-<script setup>import { useWindowSize } from 'vue-window-size';</script>
+<script></script>
 <template>
   <nav>
     <div class="links">
@@ -16,7 +16,7 @@
     </div>
     <div class=menubtn @click="(polmenu = !polmenu); rotate($event.target)" id=menubtn></div>
   </nav>
-  <div class=mobmenu v-if='(polmenu == 1 && windowHeight < 550)'>
+  <div class=mobmenu v-if='polmenu == 1'>
     <ul>
       <li>
         <router-link to="/work">Work</router-link>
@@ -40,13 +40,6 @@
 <script>
 export default {
   name: "App",
-  setup() {
-    const { width, height } = useWindowSize();
-    return {
-      windowWidth: width,
-      windowHeight: height,
-    };
-  },
   data() {
     return {
       polmenu: false,
@@ -61,7 +54,7 @@ export default {
         e.classList.add("rotate");
       }
     }
-  },
+  }
 }
 
 </script>
