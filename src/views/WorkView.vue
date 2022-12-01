@@ -1,5 +1,5 @@
 <template>
-  <WorkComp/>
+  <WorkComp />
 </template>
 
 <script>
