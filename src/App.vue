@@ -159,14 +159,37 @@ nav {
   color: $darkgreen;
 }
 
-.links>*,
-router-link {
+li {
+  a {
+    text-decoration: none;
+  }
+
+  a::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: black;
+    transition: 400ms;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  a:-webkit-any-link {
+    color: black
+  }
+}
+
+.links>* {
   font-size: 15px;
   padding: 10px;
   font-family: $mainFont;
   text-decoration: none;
   color: $darkgreen;
   text-transform: uppercase;
+
 
   &:hover {
     color: white;
