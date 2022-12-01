@@ -36,8 +36,8 @@ import router from "@/router";
 
 export default {
   name: "EducationComp",
-  methods:{
-    goToContact:()=>{
+  methods: {
+    goToContact: () => {
       router.replace("/contact");
     }
   }
@@ -45,86 +45,102 @@ export default {
 </script>
 
 <style lang="scss">
-  .education{
-    height: 900px;
-    background-color: $global;
-    margin-top:20px;
-    h1:first-of-type{
-      text-align: center;
+@media screen and (max-width: 800px) {
+  .education {
+    .items {
+      flex-direction: column;
+    }
+  }
+}
+
+.education {
+  padding-bottom: 40px;
+  background-color: $global;
+  margin-top: 20px;
+
+  h1:first-of-type {
+    text-align: center;
+    color: white;
+    font-family: $mainFont;
+    margin: 0 0 100px 0;
+    position: relative;
+    top: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .item {
+      width: 260px;
+      padding: 40px;
+      border: 2px solid white;
+      border-radius: 80px;
       color: white;
-      font-family: $mainFont;
-      margin: 0 0 100px 0;
       position: relative;
-      top: 20px;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-
-    .items{
+      height: 350px;
+      margin: 40px 20px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      .item{
-        width: 260px;
-        padding: 40px;
-        border: 2px solid white;
-        border-radius: 80px;
-        color: white;
-        position: relative;
-        height: 350px;
-        margin: 0 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        .year{
-          position: absolute;
-          bottom: -30px;
-          font-size: 33px;
-          background-color: white;
-          border-radius: 50%;
-          padding: 10px;
-          font-family: $mainFont;
-          font-weight: 500;
-          text-shadow:
-               -1px 0 $global,
-               0 1px $global,
-               1px 0 $global,
-               0 -1px $global;
-        }
-        .top{
-          top: -30px;
-          bottom: auto;
-        }
-        h2{
-          font-family: $mainFont;
-          font-weight: 500;
-          font-size: 20px;
-        }
-        #paperImg{
-          width: 150px;
-          position: absolute;
-          top: -65px;
-          right: 8px;
-          transform: rotate(150deg);
-        }
-      }
-    }
-
-    .end{
+      align-items: center;
       text-align: center;
-      color: white;
-      font-family: $mainFont;
-      width: 435px;
-      margin: 100px auto;
-      h2{
-        font-size: 32px;
+
+      .year {
+        position: absolute;
+        bottom: -30px;
+        font-size: 33px;
+        background-color: white;
+        border-radius: 50%;
+        padding: 10px;
+        font-family: $mainFont;
+        font-weight: 500;
+        text-shadow:
+          -1px 0 $global,
+          0 1px $global,
+          1px 0 $global,
+          0 -1px $global;
       }
-      u:hover{
-        cursor: pointer;
-        color: black;
+
+      .top {
+        top: -30px;
+        bottom: auto;
+      }
+
+      h2 {
+        font-family: $mainFont;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      #paperImg {
+        width: 150px;
+        position: absolute;
+        top: -65px;
+        right: 8px;
+        transform: rotate(150deg);
       }
     }
   }
+
+  .end {
+    text-align: center;
+    color: white;
+    font-family: $mainFont;
+    width: 435px;
+    margin: 100px auto;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    u:hover {
+      cursor: pointer;
+      color: black;
+    }
+  }
+}
 </style>

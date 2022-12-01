@@ -15,25 +15,25 @@
       <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
     </div>
     <div class=menubtn @click="(polmenu = !polmenu); rotate($event.target)" id=menubtn></div>
+    <div class=mobmenu v-if='polmenu == 1'>
+      <ul>
+        <li>
+          <router-link to="/work">Work</router-link>
+        </li>
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+        <li>
+          <router-link to="/contact">Contact</router-link>
+        </li>
+        <div class="socials">
+          <a href="#"><font-awesome-icon icon="fa-brands fa-pinterest" /></a>
+          <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
+          <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+        </div>
+      </ul>
+    </div>
   </nav>
-  <div class=mobmenu v-if='polmenu == 1'>
-    <ul>
-      <li>
-        <router-link to="/work">Work</router-link>
-      </li>
-      <li>
-        <router-link to="/about">About</router-link>
-      </li>
-      <li>
-        <router-link to="/contact">Contact</router-link>
-      </li>
-      <div class="socials">
-        <a href="#"><font-awesome-icon icon="fa-brands fa-pinterest" /></a>
-        <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
-        <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-      </div>
-    </ul>
-  </div>
   <router-view />
 </template>
 
@@ -120,6 +120,8 @@ ul {
   position: absolute;
   right: 0px;
   width: 40%;
+  top: 51px;
+  z-index: 1;
 }
 
 nav {

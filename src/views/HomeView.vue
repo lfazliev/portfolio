@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <GreetingComp/>
-    <OfferComp/>
-    <EducationComp/>
+    <GreetingComp />
+    <OfferComp />
+    <EducationComp />
   </div>
 </template>
 
@@ -20,3 +20,15 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss">
+@media screen and (max-width:550px) {
+  p {
+    font-size: 20px
+  }
+}
+
+.home {
+  background-color: white;
+
+}
+</style>
