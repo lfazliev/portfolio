@@ -14,25 +14,27 @@
       <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
       <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
     </div>
-    <div :class="('menubtn ' + rotate_cl)" @click="(polmenu = !polmenu); rotate($event.target)" id=menubtn></div>
-    <div class=mobmenu v-if='((polmenu == 1) && (winwidth < 550))'>
-      <ul>
-        <li>
-          <router-link to="/work">Work</router-link>
-        </li>
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
-        <li>
-          <router-link to="/contact">Contact</router-link>
-        </li>
-        <div class="socials">
-          <a href="#"><font-awesome-icon icon="fa-brands fa-pinterest" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-        </div>
-      </ul>
-    </div>
+    <div :class="('menubtn ' + rotate_cl)" @click="(polmenu = !polmenu);" id=menubtn></div>
+    <transition name=fade class=transmenu>
+      <div v-if='((polmenu == true) && (winwidth < 550))'>
+        <ul>
+          <li>
+            <router-link to="/work">Work</router-link>
+          </li>
+          <li>
+            <router-link to="/about">About</router-link>
+          </li>
+          <li>
+            <router-link to="/contact">Contact</router-link>
+          </li>
+          <div class="socials">
+            <a href="#"><font-awesome-icon icon="fa-brands fa-pinterest" /></a>
+            <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
+            <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+          </div>
+        </ul>
+      </div>
+    </transition>
   </nav>
   <router-view />
 </template>
@@ -44,7 +46,6 @@ export default {
     return {
       winwidth: 0,
       polmenu: false,
-      rotate_cl: ''
     }
   },
   created() {
@@ -53,22 +54,28 @@ export default {
   destroyed() {
   window.removeEventListener("resize", this.myEventHandler);
   },
-  methods: {
-    myEventHandler(e) {
-      if (e.target.innerWidth < 550) {
-        this.polmenu = false
-      }
-      this.rotate()
-      this.winwidth = e.target.innerWidth
-    },
-    rotate() {
+  computed:{
+    rotate_cl(){
       if (this.polmenu == false) {
-        this.rotate_cl = ''
+        return ''
       }
       else {
-        this.rotate_cl ='rotate'
+        return 'rotate'
+      }
+    },
+    mobmenu_class(){
+      if (this.polmenu == false) {
+        return unshow
       }
     }
+  },
+  methods: {
+    myEventHandler(e) {
+      this.winwidth = e.target.innerWidth
+      if (this.winwidth > 550) {
+        this.polmenu = false
+      }
+    },
   }
 }
 
@@ -91,7 +98,19 @@ body {
   width: 20px;
   height: 20px;
   transition: 300ms;
+}
+
+.menubtn:hover {
   cursor: pointer;
+}
+
+.transmenu {
+  z-index: 1;
+  right: 0;
+  width: 40%;
+  top: 51px;
+  position: absolute;
+  background-color: #fde8e1;
 }
 
 ul {
@@ -117,37 +136,29 @@ ul {
   }
 }
 
-@keyframes anim {
-  from {
-    right: -40%
-  }
 
-  to {
-    right: 0;
-  }
-
+.fade-enter-from {
+  right: -40%;
 }
 
-@keyframes eanim {
-  from {
-    right: 0
-  }
-
-  to {
-    right: -40;
-  }
-
+.fade-enter-to {
+  right: 0;
 }
 
-.mobmenu {
-  animation: anim 500ms;
-  background-color: #fde8e1;
-  position: absolute;
-  right: 0px;
-  width: 40%;
-  top: 51px;
-  z-index: 1;
+.fade-leave-from {
+  right: 0;
 }
+
+.fade-leave-to {
+  right: -40%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: right 0.8s;
+}
+
+
 
 nav {
   background-color: #fde8e1;
