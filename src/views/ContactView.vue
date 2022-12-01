@@ -2,13 +2,7 @@
   <div class="contact">
     <h2>Thanks for taking the time to reach out. <br> How can I help you today?</h2>
     <form @submit="checkForm">
-      <p v-if="errors.length">
-        <b>Пожалуйста исправьте указанные ошибки:</b>
-      <ul>
-        <li v-for="error in errors" :key="error">{{ error }}</li>
-      </ul>
-      </p>
-      <div class=input - cont>
+      <div class=input-cont>
         <div class='input-cont-sec'>
           <div class=" text-field">
             <label class="text-field__label" for="username">Name</label>
@@ -44,29 +38,8 @@ export default {
       text: '',
       name: '',
       email: '',
-      errors: [],
     }
   },
-  methods: {
-    checkForm: function (e) {
-      if (this.text && this.email && this.text) {
-        return true;
-      }
-
-      this.errors = [];
-
-      if (!this.name) {
-        this.errors.push('Требуется указать имя.');
-      }
-      if (!this.age) {
-        this.errors.push('Требуется указать возраст.');
-      }
-      if (!this.email) {
-        this.errors.push('Требуется указать возраст.');
-      }
-      e.preventDefault();
-    }
-  }
 }
 
 </script>
