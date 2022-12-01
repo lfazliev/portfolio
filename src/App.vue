@@ -76,6 +76,7 @@ body {
   width: 20px;
   height: 20px;
   transition: 300ms;
+  cursor: pointer;
 }
 
 ul {
@@ -89,8 +90,6 @@ ul {
   li {
     margin: 5px;
     padding: 10px;
-    border: 1px solid $white-color;
-    border-radius: 5px;
   }
 
   li:hover {
@@ -110,6 +109,17 @@ ul {
 
   to {
     right: 0;
+  }
+
+}
+
+@keyframes eanim {
+  from {
+    right: 0
+  }
+
+  to {
+    right: -40;
   }
 
 }
