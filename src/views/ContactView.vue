@@ -5,13 +5,12 @@
       <p v-if="errors.length">
         <b>Пожалуйста исправьте указанные ошибки:</b>
       <ul>
-        <!-- y
-          li v-for="error in errors: key =" error">{{ error }}</li> -->
+        <li v-for="error in errors" :key="error">{{ error }}</li>
       </ul>
       </p>
-      <div class=input-cont>
+      <div class=input - cont>
         <div class='input-cont-sec'>
-          <div class="text-field">
+          <div class=" text-field">
             <label class="text-field__label" for="username">Name</label>
             <input required class="text-field__input text-field__input_valid" type="text" name="firstname" v-model=name>
             <div class="text-field__message"></div>
