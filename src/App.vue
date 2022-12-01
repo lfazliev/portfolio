@@ -14,8 +14,8 @@
       <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
       <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
     </div>
-    <div class=menubtn @click="(polmenu = !polmenu); rotate($event.target)" id=menubtn></div>
-    <div class=mobmenu v-if='polmenu == 1'>
+    <div :class="('menubtn ' + rotate_cl)" @click="(polmenu = !polmenu); rotate($event.target)" id=menubtn></div>
+    <div class=mobmenu v-if='((polmenu == 1) && (winwidth < 550))'>
       <ul>
         <li>
           <router-link to="/work">Work</router-link>
@@ -42,16 +42,31 @@ export default {
   name: "App",
   data() {
     return {
+      winwidth: 0,
       polmenu: false,
+      rotate_cl: ''
     }
   },
+  created() {
+  window.addEventListener("resize", this.myEventHandler);
+  },
+  destroyed() {
+  window.removeEventListener("resize", this.myEventHandler);
+  },
   methods: {
-    rotate(e) {
+    myEventHandler(e) {
+      if (e.target.innerWidth < 550) {
+        this.polmenu = false
+      }
+      this.rotate()
+      this.winwidth = e.target.innerWidth
+    },
+    rotate() {
       if (this.polmenu == false) {
-        e.classList.remove("rotate");
+        this.rotate_cl = ''
       }
       else {
-        e.classList.add("rotate");
+        this.rotate_cl ='rotate'
       }
     }
   }
