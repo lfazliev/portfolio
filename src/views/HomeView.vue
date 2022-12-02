@@ -27,6 +27,7 @@ export default {
   }
 }
 
+
 .home {
   background-color: white;
 

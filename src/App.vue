@@ -3,7 +3,6 @@
   <nav>
     <div class="links">
       <router-link to="/work">Work</router-link>
-      <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
     </div>
     <div class="logo">
@@ -20,9 +19,6 @@
         <ul>
           <li>
             <router-link to="/work">Work</router-link>
-          </li>
-          <li>
-            <router-link to="/about">About</router-link>
           </li>
           <li>
             <router-link to="/contact">Contact</router-link>
@@ -113,28 +109,7 @@ body {
   background-color: #fde8e1;
 }
 
-ul {
-  list-style: none;
-  padding: 5px;
 
-  span {
-    color: black
-  }
-
-  li {
-    margin: 5px;
-    padding: 10px;
-  }
-
-  li:hover {
-    cursor: pointer;
-    filter: brightness(40%)
-  }
-
-  ul:hover {
-    cursor: pointer;
-  }
-}
 
 
 .fade-enter-from {
@@ -161,6 +136,37 @@ ul {
 
 
 nav {
+  ul {
+    list-style: none;
+    padding: 5px;
+
+    span {
+      color: black
+    }
+
+    li {
+      margin: 5px;
+      padding: 10px;
+    }
+
+    li:hover {
+      cursor: pointer;
+      filter: brightness(40%)
+    }
+
+    ul:hover {
+      cursor: pointer;
+    }
+  }
+
+  a:hover {
+    transition: color 300ms;
+  }
+
+  a {
+    transition: color 300ms;
+  }
+
   background-color: #fde8e1;
   height: 50px;
   border-bottom: 1px solid black;
@@ -196,7 +202,7 @@ li {
 .links>* {
   font-size: 15px;
   padding: 10px;
-  font-family: $mainFont;
+
   text-decoration: none;
   color: $darkgreen;
   text-transform: uppercase;

@@ -69,6 +69,8 @@ body {
 
 .contact,
 form {
+  padding: 10px;
+
   label {
     font-weight: 700px;
     font-size: 23px;
@@ -133,6 +135,14 @@ form {
     font-size: 25px;
   }
 
+  button:hover {
+    transition: 300ms;
+  }
+
+  button {
+    transition: 300ms;
+  }
+
   h2 {
     margin: 40px 0 50px 0;
     font-size: 50px;
@@ -146,18 +156,24 @@ form {
     }
   }
 
+  @media screen and (max-width: 600px) {
+    .input-cont {
+      width: 45%;
+    }
+  }
+
   @media screen and (max-width: 800px) {
     h2 {
       font-size: 20px !important;
     }
 
     .text-field {
-      width: 85% !important;
+      width: 100% !important;
     }
 
     textarea {
 
-      width: 90%;
+      width: 100%;
 
       border-radius: 100px;
     }

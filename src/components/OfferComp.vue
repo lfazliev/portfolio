@@ -75,7 +75,7 @@ export default {
     text-align: center;
     text-transform: uppercase;
     color: $global;
-    font-family: $mainFont;
+
     font-weight: 500;
 
   }
@@ -85,7 +85,7 @@ export default {
     color: black;
     margin: auto;
     width: 35%;
-    font-family: $mainFont;
+
   }
 
   .items {
@@ -125,7 +125,7 @@ export default {
       }
 
       h1 {
-        font-family: $mainFont;
+
         text-transform: uppercase;
         font-weight: 500;
         color: $black-color

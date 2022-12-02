@@ -45,6 +45,14 @@ export default {
 </script>
 
 <style lang="scss">
+button:hover {
+  transition: background-color 300ms;
+}
+
+button {
+  transition: background-color 300ms;
+}
+
 @media screen and (max-width: 800px) {
   .education {
     .items {
@@ -61,7 +69,7 @@ export default {
   h1:first-of-type {
     text-align: center;
     color: white;
-    font-family: $mainFont;
+
     margin: 0 0 100px 0;
     position: relative;
     top: 20px;
@@ -96,7 +104,7 @@ export default {
         background-color: white;
         border-radius: 50%;
         padding: 10px;
-        font-family: $mainFont;
+
         font-weight: 500;
         text-shadow:
           -1px 0 $global,
@@ -111,7 +119,7 @@ export default {
       }
 
       h2 {
-        font-family: $mainFont;
+
         font-weight: 500;
         font-size: 20px;
       }
@@ -129,7 +137,7 @@ export default {
   .end {
     text-align: center;
     color: white;
-    font-family: $mainFont;
+
     width: 435px;
     margin: 100px auto;
 
